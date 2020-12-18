@@ -39,12 +39,8 @@ export const GlobalProvider = ({ children }) => {
   }
   async function loginUser(user) {
     try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      const res = await axios.post("/api/login", user, config);
+     
+      const res = await axios.post("/api/login", user );
       if (res.data.token) {
         dispatch({
           type: "TOKEN",
@@ -69,12 +65,7 @@ export const GlobalProvider = ({ children }) => {
 
   async function registerUser(user) {
     try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      const res = await axios.post("/api/register", user, config);
+      const res = await axios.post("/api/register", user);
       dispatch({
         type: "TOKEN",
         payload: res.data.token.accessToken,
@@ -98,7 +89,6 @@ export const GlobalProvider = ({ children }) => {
       const config = {
         headers: {
           "Authorization": `Bearer ${token}`,
-          "content-type": "application/json",
         },
       };
       const allPosts = await axios.get("/api/post", config);
@@ -113,7 +103,6 @@ export const GlobalProvider = ({ children }) => {
       const config = {
         headers: {
           "Authorization": `Bearer ${token}`,
-          "content-type": "application/json",
         },
       };
       const myPosts= await axios.get("/api/user/posts",config);
@@ -128,7 +117,6 @@ export const GlobalProvider = ({ children }) => {
       const config = {
         headers: {
           "Authorization": `Bearer ${token}`,
-          "content-type": "application/json",
         },
       };
       const res= await axios.get(`/api/posts/${tag}`,config);
@@ -144,7 +132,6 @@ export const GlobalProvider = ({ children }) => {
     const config = {
       headers: {
         "Authorization": `Bearer ${token}`,
-        "content-type": "application/json",
       },
     };
     try {
@@ -162,7 +149,6 @@ export const GlobalProvider = ({ children }) => {
       const config = {
         headers: {
           "Authorization": `Bearer ${token}`,
-          "content-type": "application/json",
         },
       };
       try {
