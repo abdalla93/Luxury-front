@@ -14,3 +14,4 @@ future improvement for the front part of the project:
 1-better message indecation of login/register errors/success
 2-better structure for project files/folders
 3-apply Reducers for the Posts logic
+4-add spinner
